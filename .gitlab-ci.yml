@@ -1,0 +1,20 @@
+default:
+  image: jordanirabor/python3.7-pip-pipenv
+build-job:
+  stage: build
+  script:
+    - apt install pipenv
+    - pipenv install
+    - pipenv run python manage.py makemigrations --noinput
+    - pipenv run python manage.py migrate
+
+test:
+  stage: test
+  services:
+    - postgres:9.3
+  variables:
+    POSTGRES_DB: postgres
+    POSTGRES_USER: postgres
+    POSTGRES_PASSWORD: "postgres"
+  script:
+    - pipenv run python fitness_jogger/manage.py test --noinput

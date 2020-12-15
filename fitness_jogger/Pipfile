@@ -1,0 +1,20 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+
+[packages]
+django = "*"
+djangorestframework = "*"
+gunicorn = "*"
+psycopg2-binary = "*"
+djangorestframework-simplejwt = "*"
+autopep8 = "*"
+requests = "*"
+jsonfield = "*"
+django-filter = "*"
+
+[requires]
+python_version = "3.7"
